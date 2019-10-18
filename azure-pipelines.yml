@@ -13,6 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: 'net use X: https://mlmodelaj7lv7tzz3auw.file.core.windows.net/data/ /u:mlmodelaj7lv7ttzz3auw $(filestorage.key)'
+  displayName: 'Map disk drive to Azure Files share folder'
+  
 - script: dotnet build src/machine-learning/FraudPredictionTrainer/FraudPredictionTrainer.csproj --configuration $(buildConfiguration)
   displayName: 'Build Trainer Console App (dotnet build) $(buildConfiguration)'
 
