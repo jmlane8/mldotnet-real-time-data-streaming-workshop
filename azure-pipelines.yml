@@ -10,7 +10,9 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  buildConfiguration: 'Release'
+- group: fraud-detection
+- name: buildConfiguration
+  value: 'Release'
 
 steps:
 - script: 'net use X: https://mlmodelaj7lv7tzz3auw.file.core.windows.net/data/ /u:mlmodelaj7lv7ttzz3auw $(filestorage.key)'
